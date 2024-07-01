@@ -9,17 +9,24 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-        <td><img class="img-fluid" [src]="catalogo.Producto" [alt]=""></td>
-        <td>{{catalogo.Nombre}}</td>
-        <td>{{catalogo.Tipo}}</td>
-        <td>{{catalogo.Precio}}</td>
-        <td><select name="" id="">
-            <option value="40">40</option>
-            <option value="41">41</option>
-            <option value="42">42</option>
-        </select>
+        @for(producto of catalogo;track producto.nombre){
+            <tr [ngClass]="{'en_oferta': producto.oferta}">
+         <td><img class="img-fluid" [src]="producto.producto" [alt]=""></td>
+         <td>{{producto.nombre}}</td>
+         <td>{{producto.tipo}}</td>
+         <td>{{producto.precio | currency}}</td>
+         <td [ngClass]="{'no_disponible': producto.talles.length == 0}">
+            @if(producto.talles.length == 0){
+             No disponible
+            }@else{
+            <select name="" id="">
+              @for(talle of producto.talles; track talle){
+                <option value="{{talle}}">{{talle}}</option>
+                }
+            </select>
+            }
         </td>
-    </tr>
+        </tr>
+    }
     </tbody>
 </table>
