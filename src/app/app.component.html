@@ -7,24 +7,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Prendas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
+          <a class="nav-link" [routerLink]="['/sobre']">Contacto</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 <div class="container">
-      <div class="row">
-         <div class="col-8">Catalogo
-             <app-catalogo-lista></app-catalogo-lista>
-         </div>
-         <div class="col-4">Carrito</div>
-      </div>
+      <router-outlet></router-outlet>
 </div>
 

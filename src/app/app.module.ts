@@ -4,11 +4,17 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CatalogoListaComponent } from './catalogo-lista/catalogo-lista.component';
+import { TundraSobreNosotrosComponent } from './tundra-sobre-nosotros/tundra-sobre-nosotros.component';
+import { TundraProductosComponent } from './tundra-productos/tundra-productos.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatalogoListaComponent
+    CatalogoListaComponent,
+    TundraSobreNosotrosComponent,
+    TundraProductosComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

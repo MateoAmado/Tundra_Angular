@@ -44,4 +44,13 @@ export class CatalogoListaComponent {
       oferta : false
      },
     ];
+
+    addToCart(producto: Producto) {
+      const selectElement = document.getElementById(`select-${producto.nombre}`) as HTMLSelectElement;
+      const selectedTalle = selectElement.value;
+      console.log(`Añadir al carrito: Producto - ${producto.nombre}, Talle - ${selectedTalle}`);
+      
+      // Quitar el talle seleccionado del arreglo de talles del producto
+      producto.talles = producto.talles.filter(talle => talle !== selectedTalle);
+    }
 }
