@@ -1,1 +1,5 @@
-<p>carrito works!</p>
+<ul>
+    <li *ngFor="let producto of listaCompras">
+        {{producto.nombre}} Talle: {{producto.talleSeleccionado}}
+    </li>
+</ul>
