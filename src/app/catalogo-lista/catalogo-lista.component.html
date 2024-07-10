@@ -10,31 +10,30 @@
         </tr>
     </thead>
     <tbody>
-        @for (producto of catalogo; track producto.nombre) {
-          <tr [ngClass]="{'en_oferta': producto.oferta}">
-            <td>
-              <img width="100px" class="img-thumbnail" [src]="producto.producto" [alt]="">
-            </td>
-            <td>{{ producto.nombre }}</td>
-            <td>{{ producto.tipo }}</td>
-            <td>{{ producto.precio | currency }}</td>
-            <td [ngClass]="{'no_disponible': producto.talles.length == 0}">
-              @if (producto.talles.length == 0) {
-                No disponible
-              } @else {
-                <select name="" id="select-{{producto.nombre}}">
-                  @for (talle of producto.talles; track talle) {
-                    <option value="{{ talle }}">{{ talle }}</option>
-                  }
-                </select>
-              }
-            </td>
-            <td>
-              <button class="btn btn-primary" (click)="addToCart(producto)">
-                <i class="bi bi-cart-plus"></i>
-              </button>
-            </td>
-          </tr>
-        }
+      <tr *ngFor="let producto of catalogo; trackBy: trackByNombre" [ngClass]="{'en_oferta': producto.oferta}">
+        <td>
+          <img width="100px" class="img-thumbnail" [src]="producto.producto" [alt]="producto.nombre">
+        </td>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.tipo }}</td>
+        <td>{{ producto.precio | currency }}</td>
+        <td [ngClass]="{'no_disponible': getTalles(producto.talles).length == 0}">
+          <ng-container *ngIf="getTalles(producto.talles).length == 0; else disponible">
+            No disponible
+          </ng-container>
+          <ng-template #disponible>
+            <select name="" id="select-{{producto.nombre}}">
+              <option *ngFor="let talle of getTalles(producto.talles)" [value]="talle">
+                {{ talle }} ({{ producto.talles[talle] }} disponibles)
+              </option>
+            </select>
+          </ng-template>
+        </td>
+        <td>
+          <button class="btn btn-primary" (click)="addToCart(producto, getSelectedTalle(producto.nombre))">
+            <i class="bi bi-cart-plus"></i>
+          </button>
+        </td>
+      </tr>
       </tbody>
 </table>

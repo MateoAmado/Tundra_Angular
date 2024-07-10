@@ -3,6 +3,7 @@ export interface Producto{
     nombre: string;
     tipo: string;
     precio: number;
-    talles: string[];
+    talles: { [key: string]: number };
+    talleSeleccionado: string;
     oferta: boolean;
 }
