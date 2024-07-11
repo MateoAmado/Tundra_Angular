@@ -1,4 +1,4 @@
-<table class="table text-center">
+<table class="table text-center align-middle">
     <thead>
         <tr>
             <th>Producto</th>
@@ -12,7 +12,7 @@
     <tbody>
       <tr *ngFor="let producto of catalogo; trackBy: trackByNombre" [ngClass]="{'en_oferta': producto.oferta}">
         <td>
-          <img width="100px" class="img-thumbnail" [src]="producto.producto" [alt]="producto.nombre">
+          <img width="100px" class="img-thumbnail" [src]="producto.img" [alt]="producto.nombre">
         </td>
         <td>{{ producto.nombre }}</td>
         <td>{{ producto.tipo }}</td>

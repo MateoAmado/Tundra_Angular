@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Producto } from './producto';
 import { ProductoCarritoService } from '../producto-carrito.service';
+import { ProductosDataService } from '../productos-data.service';
 
 @Component({
   selector: 'app-catalogo-lista',
@@ -9,51 +10,16 @@ import { ProductoCarritoService } from '../producto-carrito.service';
 })
 export class CatalogoListaComponent {
 
-  catalogo: Producto[] = [
-    {
-      producto: "https://media2.solodeportes.com.ar/media/catalog/product/cache/a0bd03cb38235cf9ca6c3c8cbea4afc1/z/a/zapatillas-adidas-campus-00s-mujer-negra-10001ehp6396001-1.jpg",
-      nombre: "Adidas Campus",
-      tipo: "Calzado",
-      precio: 60000,
-      talles: { "40": 5, "41": 3, "42": 2 },
-      oferta: false,
-      talleSeleccionado: "",
-      cantidad: 0
-    },
-    {
-      producto: "https://media2.solodeportes.com.ar/media/catalog/product/cache/a0bd03cb38235cf9ca6c3c8cbea4afc1/z/a/zapatillas-adidas-campus-00s-mujer-negra-10001ehp6396001-1.jpg",
-      nombre: "Nike Pandas",
-      tipo: "Calzado",
-      precio: 50000,
-      talles: { "40": 4, "41": 2, "42": 1 },
-      oferta: true,
-      talleSeleccionado: "",
-      cantidad: 0
-    },
-    {
-      producto: "https://media2.solodeportes.com.ar/media/catalog/product/cache/a0bd03cb38235cf9ca6c3c8cbea4afc1/z/a/zapatillas-adidas-campus-00s-mujer-negra-10001ehp6396001-1.jpg",
-      nombre: "Nike Jordan",
-      tipo: "Calzado",
-      precio: 70000,
-      talles: { "40": 3, "41": 1, "42": 5 },
-      oferta: false,
-      talleSeleccionado: "",
-      cantidad: 0
-    },
-    {
-      producto: "https://media2.solodeportes.com.ar/media/catalog/product/cache/a0bd03cb38235cf9ca6c3c8cbea4afc1/z/a/zapatillas-adidas-campus-00s-mujer-negra-10001ehp6396001-1.jpg",
-      nombre: "Adidas",
-      tipo: "Calzado",
-      precio: 90000,
-      talles: {},
-      oferta: false,
-      talleSeleccionado: "",
-      cantidad: 0
-    },
-  ];
+  catalogo: Producto[] = [];
 
-  constructor(private carrito: ProductoCarritoService){
+  constructor(private carrito: ProductoCarritoService,
+     private productosdata: ProductosDataService){
     
+  }
+
+  ngOnInit():void{
+    this.productosdata.getAll()
+    .subscribe(data => this.catalogo = data); 
   }
 
   addToCart(producto: Producto, talleElegido: string) {
