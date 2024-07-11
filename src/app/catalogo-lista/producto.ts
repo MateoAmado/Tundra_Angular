@@ -6,4 +6,5 @@ export interface Producto{
     talles: { [key: string]: number };
     talleSeleccionado: string;
     oferta: boolean;
+    cantidad:number;
 }

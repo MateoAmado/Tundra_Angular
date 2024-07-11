@@ -17,7 +17,8 @@ export class CatalogoListaComponent {
       precio: 60000,
       talles: { "40": 5, "41": 3, "42": 2 },
       oferta: false,
-      talleSeleccionado: ""
+      talleSeleccionado: "",
+      cantidad: 0
     },
     {
       producto: "https://media2.solodeportes.com.ar/media/catalog/product/cache/a0bd03cb38235cf9ca6c3c8cbea4afc1/z/a/zapatillas-adidas-campus-00s-mujer-negra-10001ehp6396001-1.jpg",
@@ -26,7 +27,8 @@ export class CatalogoListaComponent {
       precio: 50000,
       talles: { "40": 4, "41": 2, "42": 1 },
       oferta: true,
-      talleSeleccionado: ""
+      talleSeleccionado: "",
+      cantidad: 0
     },
     {
       producto: "https://media2.solodeportes.com.ar/media/catalog/product/cache/a0bd03cb38235cf9ca6c3c8cbea4afc1/z/a/zapatillas-adidas-campus-00s-mujer-negra-10001ehp6396001-1.jpg",
@@ -35,7 +37,8 @@ export class CatalogoListaComponent {
       precio: 70000,
       talles: { "40": 3, "41": 1, "42": 5 },
       oferta: false,
-      talleSeleccionado: ""
+      talleSeleccionado: "",
+      cantidad: 0
     },
     {
       producto: "https://media2.solodeportes.com.ar/media/catalog/product/cache/a0bd03cb38235cf9ca6c3c8cbea4afc1/z/a/zapatillas-adidas-campus-00s-mujer-negra-10001ehp6396001-1.jpg",
@@ -44,7 +47,8 @@ export class CatalogoListaComponent {
       precio: 90000,
       talles: {},
       oferta: false,
-      talleSeleccionado: ""
+      talleSeleccionado: "",
+      cantidad: 0
     },
   ];
 
